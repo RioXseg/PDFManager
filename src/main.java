@@ -7,7 +7,7 @@ public class main {
     public static void main (String args[]) throws IOException {
 
         //Creamos manager
-        PDFManager manager = new PDFManager(System.getProperty("user.dir") + "/yotsuba.pdf",System.getProperty("user.dir") + "/test.pdf");
+        PDFManager manager = new PDFManager(System.getProperty("user.dir") + "/In.pdf",System.getProperty("user.dir") + "/test.pdf");
 
         manager.clone(11,16);
         manager.addBlancPageToAll();
