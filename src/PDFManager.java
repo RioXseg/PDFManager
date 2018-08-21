@@ -20,7 +20,7 @@ public class PDFManager {
         this.dirOut = dirOut;
 
         //Si ingreso ruta de entrada, entonces cargamos el archivo inmediatamente
-        if (this.dirIn != "") {
+        if (this.dirIn.equals("")) {
             load();
             this.nPagesIn = this.PDFIn.getNumberOfPages();
         }else{
@@ -113,6 +113,14 @@ public class PDFManager {
 
         //Finalmente cambiamos el auxiliar por el archivo de salida
         this.PDFOut = documentAux;
+    }
+
+    //Funcion que annade una pagina en blanco al documento de salida
+    void addBlancPage(){
+        //Creamos nueva pagina con tamanno por defecto
+        PDPage blancPage = new PDPage();
+        //La annadimos al documento de salida
+        this.PDFOut.addPage(blancPage);
     }
 
     //Funcion que imprime
