@@ -31,10 +31,11 @@ public class PDFManager {
 
 
     //Funcion que lee un PDF y lo almacena en la variable de pdf de entrada
-    private void load() {
+    void load() {
         try {
             File file = new File(dirIn);
             this.PDFIn = PDDocument.load(file);
+            this.nPagesIn = (int) PDFIn.getNumberOfPages();
         } catch (IOException e) {
             print("Archivo no encontrado o dannado");
         }
@@ -53,16 +54,15 @@ public class PDFManager {
     void clone(int start, int end) {
         //bajamos uno pues necesitamos los indices
         start -= 1;
-        //Si ingresa -1, se vas hasta la ultima pagina
-        if (end == -1 || end > this.nPagesIn){
-            end = this.nPagesIn - 1;
-        }else{
-            end -= 1;
-        }
+        end -= 1;
+
+
+        System.out.println("Clonando");
 
         //Extraemos las hojas y las agregamos al archivo de salida
         PDPage page;
         for(int i = start;i<=end;i++){
+            System.out.println("Pagina" + i);
             page = PDFIn.getPage(i);
 
             PDRectangle rectangle = new PDRectangle();
@@ -91,6 +91,8 @@ public class PDFManager {
     void addBlancPageToAll(){
         //numero de paginas en blanco a agregar
         int nPagesOut = this.PDFOut.getNumberOfPages();
+
+        System.out.println("Colocando paginas en blanco");
 
         PDDocument documentAux = new PDDocument();
         PDPage page;
