@@ -5,9 +5,16 @@ import java.io.IOException;
 public class Main {
 
     public static void main (String args[]){
+        //Ejecutamos el programa
+        CopiarYAnnadirPaginasEnBlanco("entrada","salida");
+
+    }
+
+
+    static void CopiarYAnnadirPaginasEnBlanco(String entrada, String salida){
 
         //Creamos manager
-        PDFManager manager = new PDFManager(System.getProperty("user.dir") + "/entrada.pdf",System.getProperty("user.dir") + "/salida.pdf");
+        PDFManager manager = new PDFManager(System.getProperty("user.dir") + "/" + entrada + ".pdf",System.getProperty("user.dir") + "/" + salida + ".pdf");
         manager.load();
 
         //Clonamos paginas pedidas
@@ -18,5 +25,4 @@ public class Main {
         manager.save();
         manager.close();
     }
-
 }
