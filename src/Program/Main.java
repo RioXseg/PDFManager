@@ -2,18 +2,15 @@ package Program;
 
 import PDFManager.PDFManager;
 
+import java.io.IOException;
+
 public class Main {
 
-    public static void main (String args[]){
+    public static void main (String args[]) throws IOException {
 
         PDFManager manager = new PDFManager();
 
-        manager.load("cover.pdf");
-        manager.add("Ane Naru Mono - Vol1.pdf");
 
-        manager.save();
-
-        manager.close();
 
     }
 }
